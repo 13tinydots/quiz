@@ -3,6 +3,17 @@
     font-family: 'Work Sans', sans-serif;
  }
 
+ :root {
+    --colorOne: #D7D9D7;
+    --colorTwo: #C9C5CB;
+    --colorThree: #7b5e7b;
+    --colorFour: #7c7a7a;
+    --colorFive: #494949;
+  }
+ 
+  body {
+      background-color: var(--colorTwo);
+  }
 
  .grid-container {
     display: grid;
@@ -17,7 +28,40 @@
   
   .centerDisp { grid-area: centerDisp; }
   
-  .msgDisp { grid-area: msgDisp; }
+h1, {
+    font-size: 2rem;
+}
+
+h2, h3{
+    margin-top: 2.0rem;
+    margin-left: 1.0rem;
+}
+
+h2, h3, .msgDisp, .timerDisp {
+    font-size: 1.25rem;
+    
+}
+
+h3 {
+    font-family:roboto;
+    font-style: italic;
+    color: var(--colorThree);
+    text-shadow:var(--colorFour);
+    box-sizing:content-box;
+    width:fit-content;
+    border-top: 5px;
+    border-color:var(--colorFive);
+}
+
+
+  .msgDisp { 
+    grid-area: msgDisp; 
+    text-align: left;
+    margin-left: 1em;
+    
+    }
+
   
-  .timerDisp { grid-area: timerDisp; }
+  .timerDisp { grid-area: timerDisp; 
+}
   
