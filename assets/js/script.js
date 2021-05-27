@@ -2,24 +2,49 @@
 
 
 
+var contAlign = document.getElementById("container");
+var headline = document.getElementById("cardHeading");
+var ansBlank = document.getElementById("answerSelect");
+var ansFeedback = document.getElementById("feedback");
+var timer = document.getElementById("timer");
+var showScores = document.getElementById("showScores");
 
-var headline = document.getElementById("answerSelect");
-console.log(headline);
+init()
 
-headline.textContent = "welcome to my page";
-
-//start an init
-//init hides all text
+function init() {
+    welcomeDisp();
 // timer is reset
 // init gets high scores from memory
-// init shows welcome setup including start button - event listener
-// welcome message displayed
-// highscore option displayed - with event listener
+}
 
+function welcomeDisp(){
+    headline.textContent = "Coding Quiz Challenge";
+    headline.style.justifyContent = "center";
+    headline.style.textAlign = "center";
+    headline.style.marginTop = "1rem";
+    ansBlank.style.textAlign = "center";
+    ansBlank.style.marginLeft = "1rem";
+    ansBlank.style.marginRight = "1rem";
+    ansBlank.textContent = 'Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!';
+    ansFeedback.textContent = "";    
+    ansFeedback.style.justifyContent = "center";
+    ansFeedback.innerHTML = `<button id="startTest" type="button">Begin!</button>`;
+    document.getElementById("startTest").addEventListener("click", beginTest());
+    
+    //addEventListener;
+    // welcome setup including start button - event listener
+}
 
-//set an event listener for the high score button
+function beginTest() {
+    console.log("begin test");
+}
 
+function highScoreBtn() {
+// with event listener
 //new function: high score storage and diplay - hide display button - include return
+}
+
+
 
 //new function: setup an object literal that appends appropriate button code
 // -- for answers one through four that includes onclick listeners for each button
@@ -40,3 +65,38 @@ headline.textContent = "welcome to my page";
 //use the class, not sure how to store, and recall - maybe use JSON?
 
 
+// list of all questions, choices, and answers
+var questions = [
+    {
+      title: "Commonly used data types DO NOT include:",
+      choices: ["strings", "booleans", "alerts", "numbers"],
+      answer: "alerts"
+    },
+    {
+      title: "The condition in an if / else statement is enclosed within ____.",
+      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+      answer: "parentheses"
+    },
+    {
+      title: "Arrays in JavaScript can be used to store ____.",
+      choices: [
+        "numbers and strings",
+        "other arrays",
+        "booleans",
+        "all of the above"
+      ],
+      answer: "all of the above"
+    },
+    {
+      title:
+        "String values must be enclosed within ____ when being assigned to variables.",
+      choices: ["commas", "curly brackets", "quotes", "parentheses"],
+      answer: "quotes"
+    },
+    {
+      title:
+        "A very useful tool used during development and debugging for printing content to the debugger is:",
+      choices: ["JavaScript", "terminal / bash", "for loops", "console.log"],
+      answer: "console.log"
+    }
+  ];
