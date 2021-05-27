@@ -19,22 +19,37 @@
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 0.25fr 1fr 1fr;
-    gap: 1em 1em;
+    gap: 0.5em 0.5em;
     grid-template-areas:
       "msgDisp . timerDisp"
       ". centerDisp ."
       ". . .";
   }
   
-  .centerDisp { grid-area: centerDisp; }
+  .centerDisp { grid-area: centerDisp; 
+    border-radius: 0.5em;
+    height:fit-content;
+    min-height: 20rem;
+    max-height:30rem;
+    width: 30rem;
+    box-shadow:
+    0 6.3px 3.1px -3px rgba(0, 0, 0, 0.2),
+    0 15.5px 8px -3px rgba(0, 0, 0, 0.138),
+    0 29.7px 17.6px -3px rgba(0, 0, 0, 0.111),
+    0 54.6px 40.9px -3px rgba(0, 0, 0, 0.089),
+    0 126px 89px -3px rgba(0, 0, 0, 0.062);
+  }
   
-h1, {
+h1 {
     font-size: 2rem;
+    margin-top: 2.0rem;
+    margin-left: 1.0rem;
 }
 
 h2, h3{
     margin-top: 2.0rem;
-    margin-left: 1.0rem;
+    margin-left: 2.0rem;
+    font-weight:lighter;
 }
 
 h2, h3, .msgDisp, .timerDisp {

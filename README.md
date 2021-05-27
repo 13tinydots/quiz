@@ -3,3 +3,5 @@ wireframe and layout complete. comments showing basic structure in progress am 0
 basic semantic HTML complete.  grid container complete with responsive layout. am 05/26/2021 1:35pm
 
 basic pseudo code done. format css.  am 05/26/2021 6:31pm
+
+refined ui appearance with shadow box.  added ID tags to html am 5/27/2021 7:02am

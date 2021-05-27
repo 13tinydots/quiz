@@ -3,6 +3,11 @@
 
 
 
+var headline = document.getElementById("answerSelect");
+console.log(headline);
+
+headline.textContent = "welcome to my page";
+
 //start an init
 //init hides all text
 // timer is reset
