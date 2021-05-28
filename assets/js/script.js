@@ -1,7 +1,3 @@
-
-
-
-
 var contAlign = document.getElementById("container");
 var headline = document.getElementById("cardHeading");
 var ansBlank = document.getElementById("answerSelect");
@@ -28,15 +24,25 @@ function welcomeDisp(){
     ansBlank.textContent = 'Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!';
     ansFeedback.textContent = "";    
     ansFeedback.style.justifyContent = "center";
-    ansFeedback.innerHTML = `<button id="startTest" type="button">Begin!</button>`;
-    document.getElementById("startTest").addEventListener("click", beginTest());
-    
-    //addEventListener;
-    // welcome setup including start button - event listener
+    ansFeedback.innerHTML = `<button id="startTest" type="button">Begin Challenge!</button>`;
+    document.getElementById("startTest").style.color = "#7b5e7b";
+    document.getElementById("startTest").style.background = "#D7D9D7";
+    document.getElementById("startTest").style.border = ".05em solid #7b5e7b";
+    document.getElementById("startTest").style.borderRadius = ".25em";
+    document.getElementById("startTest").addEventListener("click", beginTest);
 }
 
 function beginTest() {
     console.log("begin test");
+    headline.textContent = "";
+    headline.style.justifyContent = "left";
+    headline.style.textAlign = "left";
+    headline.style.marginLeft = "1rem";
+    ansBlank.textContent = "";
+    ansBlank.style.textAlign = "left";
+    ansBlank.style.marginLeft = "2rem";
+    ansFeedback.innerHTML = `<h3 id="feedback"></h3>`;
+
 }
 
 function highScoreBtn() {

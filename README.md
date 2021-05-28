@@ -7,3 +7,5 @@ basic pseudo code done. format css.  am 05/26/2021 6:31pm
 refined ui appearance with shadow box.  added ID tags to html am 5/27/2021 7:02am
 
 CSS defaults now simplified to make JS coding easier as regards layout and JS now updated to include string literal html formatting.
+
+welcome screen start button now works properly and has consistent formatting with page. `beginTest` now initializes the main display to begin displaying questions
