@@ -2,7 +2,7 @@ var contAlign = document.getElementById("container");
 var headline = document.getElementById("cardHeading");
 var ansBlank = document.getElementById("answerSelect");
 var ansFeedback = document.getElementById("feedback");
-var timer = document.getElementById("timer");
+var timerPush = document.getElementById("timer");
 var showScores = document.getElementById("showScores");
 
 init()
