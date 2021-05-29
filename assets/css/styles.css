@@ -36,6 +36,8 @@
     background-color:var(--colorOne);
     display: flex;
     flex-direction: column;
+    align-content: center;
+    text-align: center;
     flex-wrap:wrap;
     box-shadow:
     0 6.3px 3.1px -3px rgba(0, 0, 0, 0.2),
@@ -44,18 +46,10 @@
     0 54.6px 40.9px -3px rgba(0, 0, 0, 0.089),
     0 126px 89px -3px rgba(0, 0, 0, 0.062);
 }
-  
-h1 {
-    display:flex;
-    font-size: 2rem;
-    margin-top: 2.0rem;   
-}
-
-
-h2, h3{
-    display:flex;
-    margin-top: 2.0rem;
-    font-weight:lighter;
+ 
+.welcomeDispAnsArea {
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 h2, h3, h5, .msgDisp, .timerDisp {
@@ -80,17 +74,15 @@ h2, h3, h5, .msgDisp, .timerDisp {
     background:#D7D9D7;
     border:0.05em solid #7b5e7b;
     border-radius:0.25em;
+    box-shadow:
+    0 6.3px 3.1px -3px rgba(0, 0, 0, 0.2),
+    0 15.5px 8px -3px rgba(0, 0, 0, 0.138),
+    0 29.7px 17.6px -3px rgba(0, 0, 0, 0.111),
+    0 54.6px 40.9px -3px rgba(0, 0, 0, 0.089),
+    0 126px 89px -3px rgba(0, 0, 0, 0.062);
 }
 
-h3 {
-    font-family:roboto;
-    font-style: italic;
-    color: var(--colorThree);
-}
-
-
-
-  .msgDisp { 
+ .msgDisp { 
     grid-area: msgDisp; 
     text-align: left;
     margin-left: 1em;

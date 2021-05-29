@@ -54,14 +54,8 @@ function init() {
 //sets up the display for user
 function welcomeDisp(){
     headline.textContent = "Coding Quiz Challenge";
-    headline.style.justifyContent = "center";
-    headline.style.textAlign = "center";
-    headline.style.marginTop = "1rem";
-    ansBlank.style.textAlign = "center";
-    ansBlank.style.marginLeft = "1rem";
-    ansBlank.style.marginRight = "1rem";
+    document.getElementById("answerSelect").setAttribute("class", "welcomeDispAnsArea");
     ansBlank.textContent = 'Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!';
- 
     document.getElementById("startTest").addEventListener("click", beginTest);
 }
 // first clears the testing area and configures it to show questions
