@@ -13,3 +13,5 @@ welcome screen start button now works properly and has consistent formatting wit
 psuedoCode refined am 5/28/2021 8:32am
 
 added evalQuestion, showQuestion timer loop. am 5/28/2021 8:17pm
+
+refactored for resource optmization. added placeholders for correct and wrong answer responses. 

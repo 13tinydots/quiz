@@ -58,14 +58,28 @@ h2, h3{
     font-weight:lighter;
 }
 
-h2, h3, .msgDisp, .timerDisp {
+h2, h3, h5, .msgDisp, .timerDisp {
     font-size: 1.25rem;
     font-weight: 300;
-    
 }
 
 .hidden {
     display:none;
+}
+
+.hidePosFeedback {
+    display:none;
+}
+
+.hideNegFeedback {
+    display:none;
+}
+
+.clickStartTest {
+    color:#7b5e7b;
+    background:#D7D9D7;
+    border:0.05em solid #7b5e7b;
+    border-radius:0.25em;
 }
 
 h3 {
@@ -73,6 +87,8 @@ h3 {
     font-style: italic;
     color: var(--colorThree);
 }
+
+
 
   .msgDisp { 
     grid-area: msgDisp; 

@@ -2,7 +2,6 @@
 var contAlign = document.getElementById("container");
 var headline = document.getElementById("cardHeading");
 var ansBlank = document.getElementById("answerSelect");
-var ansFeedback = document.getElementById("feedback");
 var timerPush = document.getElementById("timer");
 var showScores = document.getElementById("showScores");
 var wrongAnswer = false;
@@ -62,17 +61,12 @@ function welcomeDisp(){
     ansBlank.style.marginLeft = "1rem";
     ansBlank.style.marginRight = "1rem";
     ansBlank.textContent = 'Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!';
-    ansFeedback.textContent = "";    
-    ansFeedback.style.justifyContent = "center";
-    ansFeedback.innerHTML = `<button id="startTest" type="button">Begin Challenge!</button>`;
-    document.getElementById("startTest").style.color = "#7b5e7b";
-    document.getElementById("startTest").style.background = "#D7D9D7";
-    document.getElementById("startTest").style.border = ".05em solid #7b5e7b";
-    document.getElementById("startTest").style.borderRadius = ".25em";
+ 
     document.getElementById("startTest").addEventListener("click", beginTest);
 }
 // first clears the testing area and configures it to show questions
 function beginTest() {
+    document.getElementById("startTestContainer").setAttribute("class", "hidden");
     console.log("begin test");
     headline.textContent = "";
     headline.style.justifyContent = "left";
@@ -81,7 +75,6 @@ function beginTest() {
     ansBlank.textContent = "";
     ansBlank.style.textAlign = "left";
     ansBlank.style.marginLeft = "2rem";
-    ansFeedback.innerHTML = `<h3 id="feedback"></h3>`;
     startTimer();
     currentQuestion = 0;
     showQuestion();
@@ -110,6 +103,8 @@ function startTimer() {
 
 function showQuestion() {
     document.getElementById("questionContainer").setAttribute("class", "")
+    document.getElementById("posFeedback").setAttribute("class", "hidePosFeedback");
+    document.getElementById("negFeedback").setAttribute("class", "hideNegFeedback");
     document.getElementById("cardHeading").innerText = questions[currentQuestion].title;
     document.getElementById("answerOne").innerText = questions[currentQuestion].choices[0];
     document.getElementById("answerTwo").innerText = questions[currentQuestion].choices[1];
@@ -127,19 +122,21 @@ function evalQuestion(e){
 
     if(chosenOption == questions[currentQuestion].answer){
         console.log('right')
+        document.getElementById("posFeedback").setAttribute("class", "");
     } else {
         console.log('wrong')
         wrongAnswer = true
+        document.getElementById("posFeedback").setAttribute("class", "");
     }
 
     currentQuestion++;
     if(currentQuestion < questions.length){
         showQuestion();
     } else {
-        return;
+        endGame();
     }
-    // sets timer flag for incorrect responses as needed
-    // displays correct/incorrect message
+
+   
 }
 
 function endGame() {
