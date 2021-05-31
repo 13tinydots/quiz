@@ -52,7 +52,7 @@
     margin-right: 2rem;
 }
 
-h2, h3, h5, .msgDisp, .timerDisp {
+h2, h3, h5, h6, h7, h8, .msgDisp, .timerDisp {
     font-size: 1.25rem;
     font-weight: 300;
 }

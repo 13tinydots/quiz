@@ -4,11 +4,15 @@ var headline = document.getElementById("cardHeading");
 var ansBlank = document.getElementById("answerSelect");
 var timerPush = document.getElementById("timer");
 var showScores = document.getElementById("showScores");
+var scoreList = document.getElementById("high-score-list");
+var scoreForm = document.getElementById("high-score-input-blank");
+var highScores = [];
 var wrongAnswerSubtractTime = false;
 var isWin = false;
 var timerCount = 60;
 var currentQuestion = 0;
 var endGameFlag = false;
+var finalScore;
 
 // list of all questions, choices, and answers
 var questions = [
@@ -125,8 +129,6 @@ function changeQuestion() {
     currentQuestion++;
         
     if(currentQuestion < questions.length){
-        console.log(questions.length);
-        console.log(currentQuestion);
         showQuestion();
         } else {
         endGameFlag = true;
@@ -139,20 +141,34 @@ function endFeedback() {
     document.getElementById("negFeedback").setAttribute("class", "hideNegFeedback");
 }
 
+
+
 function endGame() {
     endFeedback();
-    document.getElementById("questionContainer").setAttribute("class", "hidden")
+    document.getElementById("questionContainer").setAttribute("class", "hidden");
     document.getElementById("cardHeading").innerText = "Game Over";
+    document.getElementById("highScoreMgr").setAttribute("class", "" );
+    document.getElementById("high-score-list").setAttribute("class", "" );
     finalScore = timerCount;
-    console.log(finalScore);
     clearInterval(timerFn);
-    return;
-    // displays the final score
-    // manages high score initial entry
+    
+    document.getElementById("high-score-input-blank").addEventListener('submit', handleFormSubmit);
+
+  
     // stores high scores locally, as list like the note taking app we made.
     //
     // provides button to clear scores, button to call init() to restart, 
 }
+
+ 
+ function handleFormSubmit(event) {
+    
+    var initialEl = document.getElementById('high-score-input-blank["high-score-input-entry"]').val;
+    console.log(initialEl);
+    scoreList.append('<li>' + initialEl + ' ' + finalScore + '</li>');
+}
+
+
 
 function highScoreBtn() {
 // with event listener
