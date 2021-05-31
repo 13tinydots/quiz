@@ -80,10 +80,11 @@ function startTimer() {
             timerCount = timerCount - 10;
             wrongAnswerSubtractTime = false;
         }
-                      
+            
         if (timerCount <= 0) {  
            endGame();
         }
+
     }, 1000);
 }
 
@@ -121,13 +122,14 @@ function evalQuestion(e){
 }    
 
 function changeQuestion() {
- 
+    currentQuestion++;
+        
     if(currentQuestion < questions.length){
-        currentQuestion++;
         console.log(questions.length);
         console.log(currentQuestion);
         showQuestion();
-    } else if  (currentQuestion >= questions.length) {
+        } else {
+        endGameFlag = true;
         endGame();
     }
 }
@@ -139,9 +141,11 @@ function endFeedback() {
 
 function endGame() {
     endFeedback();
+    document.getElementById("questionContainer").setAttribute("class", "hidden")
+    document.getElementById("cardHeading").innerText = "Game Over";
     finalScore = timerCount;
     console.log(finalScore);
-    clearInterval(startTimer);
+    clearInterval(timerFn);
     return;
     // displays the final score
     // manages high score initial entry
