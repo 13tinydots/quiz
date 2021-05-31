@@ -4,9 +4,12 @@ var headline = document.getElementById("cardHeading");
 var ansBlank = document.getElementById("answerSelect");
 var timerPush = document.getElementById("timer");
 var showScores = document.getElementById("showScores");
-var wrongAnswer = false;
+var wrongAnswerSubtractTime = false;
+var isWin = false;
 var timerCount = 60;
 var currentQuestion = 0;
+var endGameFlag = false;
+
 // list of all questions, choices, and answers
 var questions = [
     {
@@ -39,7 +42,7 @@ var questions = [
       title:
         "A very useful tool used during development and debugging for printing content to the debugger is:",
       choices: ["JavaScript", "terminal / bash", "for loops", "console.log"],
-      answer: "console.log"
+      answer: "console.log",
     }
   ];
 
@@ -62,13 +65,7 @@ function welcomeDisp(){
 function beginTest() {
     document.getElementById("startTestContainer").setAttribute("class", "hidden");
     console.log("begin test");
-    headline.textContent = "";
-    headline.style.justifyContent = "left";
-    headline.style.textAlign = "left";
-    headline.style.marginLeft = "1rem";
     ansBlank.textContent = "";
-    ansBlank.style.textAlign = "left";
-    ansBlank.style.marginLeft = "2rem";
     startTimer();
     currentQuestion = 0;
     showQuestion();
@@ -79,61 +76,73 @@ function startTimer() {
         timerCount--;
         timerPush.innerText = timerCount;
         
-        if (wrongAnswer){
+        if (wrongAnswerSubtractTime){
             timerCount = timerCount - 10;
+            wrongAnswerSubtractTime = false;
         }
-        
-        if (timerCount >= 0) {
-            if (isWin && timerCount > 0) {
-            endGame();
-          }
-        }
-        
-        if (timerCount === 0) {  
+                      
+        if (timerCount <= 0) {  
            endGame();
         }
     }, 1000);
 }
 
 function showQuestion() {
+
     document.getElementById("questionContainer").setAttribute("class", "")
-    document.getElementById("posFeedback").setAttribute("class", "hidePosFeedback");
-    document.getElementById("negFeedback").setAttribute("class", "hideNegFeedback");
     document.getElementById("cardHeading").innerText = questions[currentQuestion].title;
     document.getElementById("answerOne").innerText = questions[currentQuestion].choices[0];
     document.getElementById("answerTwo").innerText = questions[currentQuestion].choices[1];
     document.getElementById("answerThree").innerText = questions[currentQuestion].choices[2];
     document.getElementById("answerFour").innerText = questions[currentQuestion].choices[3];
-       
     document.getElementById("answerOne").addEventListener("click", evalQuestion)
     document.getElementById("answerTwo").addEventListener("click", evalQuestion)
     document.getElementById("answerThree").addEventListener("click", evalQuestion)
     document.getElementById("answerFour").addEventListener("click", evalQuestion)
+  
 }
 
 function evalQuestion(e){
     var chosenOption = this.textContent;
 
-    if(chosenOption == questions[currentQuestion].answer){
-        console.log('right')
+    if(chosenOption === questions[currentQuestion].answer){
+        
+        document.getElementById("negFeedback").setAttribute("class", "hideNegFeedback");
         document.getElementById("posFeedback").setAttribute("class", "");
+        changeQuestion();
+
     } else {
-        console.log('wrong')
-        wrongAnswer = true
-        document.getElementById("posFeedback").setAttribute("class", "");
+        wrongAnswerSubtractTime = true
+        document.getElementById("posFeedback").setAttribute("class", "hidePosFeedback");
+        document.getElementById("negFeedback").setAttribute("class", "");
+        changeQuestion();
     }
 
-    currentQuestion++;
+}    
+
+function changeQuestion() {
+ 
     if(currentQuestion < questions.length){
+        currentQuestion++;
+        console.log(questions.length);
+        console.log(currentQuestion);
         showQuestion();
-    } else {
+    } else if  (currentQuestion >= questions.length) {
         endGame();
     }
+}
 
-   
+function endFeedback() {
+    document.getElementById("posFeedback").setAttribute("class", "hidePosFeedback");
+    document.getElementById("negFeedback").setAttribute("class", "hideNegFeedback");
 }
 
 function endGame() {
+    endFeedback();
+    finalScore = timerCount;
+    console.log(finalScore);
+    clearInterval(startTimer);
+    return;
     // displays the final score
     // manages high score initial entry
     // stores high scores locally, as list like the note taking app we made.
