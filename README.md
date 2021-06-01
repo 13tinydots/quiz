@@ -17,3 +17,5 @@ added evalQuestion, showQuestion timer loop. am 5/28/2021 8:17pm
 refactored for resource optmization. added placeholders for correct and wrong answer responses. am 05/29/2021 11:55am
 
 timer functions appropriately, game over displayed am 05/31/2021 5:40am
+
+highscore display includes initials and hides game over text

@@ -5,7 +5,6 @@ var ansBlank = document.getElementById("answerSelect");
 var timerPush = document.getElementById("timer");
 var showScores = document.getElementById("showScores");
 var scoreList = document.getElementById("high-score-list");
-var scoreForm = document.getElementById("high-score-input-blank");
 var highScores = [];
 var wrongAnswerSubtractTime = false;
 var isWin = false;
@@ -148,24 +147,23 @@ function endGame() {
     document.getElementById("questionContainer").setAttribute("class", "hidden");
     document.getElementById("cardHeading").innerText = "Game Over";
     document.getElementById("highScoreMgr").setAttribute("class", "" );
-    document.getElementById("high-score-list").setAttribute("class", "" );
+    document.querySelector("ul").setAttribute("class", "high-score-items");
     finalScore = timerCount;
     clearInterval(timerFn);
-    
-    document.getElementById("high-score-input-blank").addEventListener('submit', handleFormSubmit);
+    document.getElementById("highScoreMgr").addEventListener('submit', handleFormSubmit);
+    document.getElementById("showScores").innerText = "";
 
-  
     // stores high scores locally, as list like the note taking app we made.
-    //
+
     // provides button to clear scores, button to call init() to restart, 
 }
 
- 
+
  function handleFormSubmit(event) {
-    
-    var initialEl = document.getElementById('high-score-input-blank["high-score-input-entry"]').val;
-    console.log(initialEl);
-    scoreList.append('<li>' + initialEl + ' ' + finalScore + '</li>');
+    event.preventDefault();
+    scoreList.append(event.target[0].value + ' --- ' + finalScore);
+    document.getElementById("highScoreMgr").setAttribute("class", "hidden" );
+    document.getElementById("cardHeading").setAttribute("class", "hidden");
 }
 
 

@@ -52,7 +52,7 @@
     margin-right: 2rem;
 }
 
-h2, h3, h5, h6, h7, h8, .msgDisp, .timerDisp {
+h2, h3, h5, h6, h7, h8, .high-score-items, .msgDisp, .timerDisp {
     font-size: 1.25rem;
     font-weight: 300;
 }
@@ -73,6 +73,24 @@ button {
     color:#7b5e7b;
     background:#D7D9D7;
     border:0.05em solid #7b5e7b;
+    border-radius:0.25em;
+    box-shadow:
+    0 6.3px 3.1px -3px rgba(0, 0, 0, 0.2),
+    0 15.5px 8px -3px rgba(0, 0, 0, 0.138),
+    0 29.7px 17.6px -3px rgba(0, 0, 0, 0.111),
+    0 54.6px 40.9px -3px rgba(0, 0, 0, 0.089),
+    0 126px 89px -3px rgba(0, 0, 0, 0.062);
+}
+
+.high-score-items {
+    display: flex;
+    flex-direction: row;
+    text-align:center;
+    flex-wrap:wrap;
+    margin: 0px;
+    width: 10rem;
+    background-color:var(--colorFour);
+    color:var(--colorOne);
     border-radius:0.25em;
     box-shadow:
     0 6.3px 3.1px -3px rgba(0, 0, 0, 0.2),
