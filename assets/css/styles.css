@@ -69,7 +69,7 @@ h2, h3, h5, h6, h7, h8, .high-score-items, .msgDisp, .timerDisp {
     display:none;
 }
 
-button {
+button, .endGame{
     color:#7b5e7b;
     background:#D7D9D7;
     border:0.05em solid #7b5e7b;
@@ -98,6 +98,26 @@ button {
     0 29.7px 17.6px -3px rgba(0, 0, 0, 0.111),
     0 54.6px 40.9px -3px rgba(0, 0, 0, 0.089),
     0 126px 89px -3px rgba(0, 0, 0, 0.062);
+}
+
+.navEndOfGame{
+    display:flex;
+    flex-direction: column;
+    align-content: space-around;
+    text-align: center;
+    
+}
+
+.high-score-list {
+    margin-top: 6rem;
+}
+
+.endGame {
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    margin-top: 1.5rem;
+    padding: 0.25rem;
 }
 
  .msgDisp { 

@@ -54,12 +54,18 @@ init()
 
 function init() {
     welcomeDisp();
+    //timerCount.value = 60;
+    localStorage.getItem("scoreList", JSON.parse(scoreList));
+   
     timerCount.value = 60;
+
 // init gets high scores from memory
 }
 //sets up the display for user
 function welcomeDisp(){
     headline.textContent = "Coding Quiz Challenge";
+    document.getElementById("startTestContainer").setAttribute("class", "");
+    document.getElementById("cardHeading").setAttribute("class", "welcomeDispAnsArea");
     document.getElementById("answerSelect").setAttribute("class", "welcomeDispAnsArea");
     ansBlank.textContent = 'Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!';
     document.getElementById("startTest").addEventListener("click", beginTest);
@@ -78,7 +84,7 @@ function startTimer() {
     timerFn = setInterval(function() {
         timerCount--;
         timerPush.innerText = timerCount;
-        
+        endFeedback();
         if (wrongAnswerSubtractTime){
             timerCount = timerCount - 10;
             wrongAnswerSubtractTime = false;
@@ -93,7 +99,8 @@ function startTimer() {
 
 function showQuestion() {
 
-    document.getElementById("questionContainer").setAttribute("class", "")
+    document.getElementById("questionContainer").setAttribute("class", "");
+    
     document.getElementById("cardHeading").innerText = questions[currentQuestion].title;
     document.getElementById("answerOne").innerText = questions[currentQuestion].choices[0];
     document.getElementById("answerTwo").innerText = questions[currentQuestion].choices[1];
@@ -164,8 +171,24 @@ function endGame() {
     scoreList.append(event.target[0].value + ' --- ' + finalScore);
     document.getElementById("highScoreMgr").setAttribute("class", "hidden" );
     document.getElementById("cardHeading").setAttribute("class", "hidden");
+    localStorage.setItem("scoreList", JSON.stringify(scoreList));
+    document.getElementById("navEndOfGame").setAttribute("class", 'navEndOfGame');
+    document.getElementById("reset").addEventListener("click", clearScreen);
+    document.getElementById("scoreReset").addEventListener("click", scoreReset);
 }
 
+function clearScreen() {
+    document.getElementById("reset").setAttribute("class", "hidden");
+    document.getElementById("scoreReset").setAttribute("class", "hidden");
+    document.getElementById("navEndOfGame").setAttribute("class", "hidden");
+    document.getElementById("high-score-list").setAttribute("class", "hidden");
+    document.getElementById("startTestContainer").setAttribute("class", "");
+    init();
+}
+
+function scoreReset() {
+    //code to clear storage
+}
 
 
 function highScoreBtn() {
