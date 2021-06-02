@@ -19,3 +19,5 @@ refactored for resource optmization. added placeholders for correct and wrong an
 timer functions appropriately, game over displayed am 05/31/2021 5:40am
 
 highscore display includes initials and hides game over text
+
+![quiz](https://user-images.githubusercontent.com/79337638/120422424-d33f0780-c32d-11eb-852f-dfffb4766f37.jpeg)
